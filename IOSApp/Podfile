@@ -1,0 +1,22 @@
+# Podfile for Native iOS App integrating Flutter Module
+
+platform :ios, '12.0'
+
+# CocoaPods analytics disables
+ENV['COCOAPODS_DISABLE_STATS'] = 'true'
+
+project 'SwiftApp', {
+  'Debug' => :debug,
+  'Release' => :release,
+}
+
+# Path to the Flutter module (relative to this Podfile)
+flutter_application_path = '../flutter_module'
+
+load File.join(flutter_application_path, '.ios', 'Flutter', 'podhelper.rb')
+
+target 'SwiftApp' do
+  use_frameworks!
+
+  install_all_flutter_pods(flutter_application_path)
+end
